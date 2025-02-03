@@ -62,13 +62,14 @@ app.delete("/user", async (req, res) => {
         if(!isAvailable){
             return res.send("User doesn't exist");
         }
-        
+
         const user = await User.findByIdAndDelete(userId);
         return res.send("User deleted successfully!");
     }catch(err){
         return res.status(400).send("Error deleting the user");
     }
 });
+
 
 
 //updating things in a specific user
