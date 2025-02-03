@@ -57,6 +57,11 @@ app.delete("/user", async (req, res) => {
     const userId = req.body.userId;
 
     try{
+        const isAvailable = await User.findOne({userId});
+        if(!isAvailable){
+            return res.send("User doesn't exist");
+        }
+        
         const user = await User.findByIdAndDelete(userId);
         return res.send("User deleted successfully!");
     }catch(err){
