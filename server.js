@@ -54,6 +54,7 @@ app.get("/feed", async (req, res) => {
 
 //deleting a user
 app.delete("/user", async (req, res) => {
+    
     const userId = req.body.userId;
 
     try{
