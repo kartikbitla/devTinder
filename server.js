@@ -6,7 +6,6 @@ const User = require("./models/user");
 const app = express();
 app.use(express.json());
 
-
 //sign up route
 app.post("/signUp", async (req, res) => {       
 
