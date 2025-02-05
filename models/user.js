@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     firstName:{
-        type:String
+        type:String,
+        required:true
     },
 
     lastName:{
@@ -10,11 +11,15 @@ const userSchema = mongoose.Schema({
     },
 
     emailId:{
-        type:String
+        type:String, 
+        required:true,
+        unique:true,
+        lowercase:true
     },
 
     password:{
-        type:String
+        type:String,
+        required:true
     },
 
     age:{
@@ -23,6 +28,17 @@ const userSchema = mongoose.Schema({
 
     gender:{
         type:String
+    },
+    photoUrl:{
+        type:String,
+        default:"https://www.alaska.edu/_resources/images/placeholders/profile.png"
+    },
+    about:{
+        type:String,
+        default:"This is a default about of the user!",
+    },
+    skills:{
+        type:[String],
     }
 })
 

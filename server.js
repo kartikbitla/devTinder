@@ -10,11 +10,7 @@ app.use(express.json());
 app.post("/signUp", async (req, res) => {       
 
     try{
-        const user = new User(req.body);
-        const isAlreadyExists = await User.findOne({emailId:user.emailId});
-        if(isAlreadyExists){
-            return res.status(400).send("Email already exists!");
-        }
+        const user = new User(req.body);       
         
         await user.save();
         return res.send("User added successfully");
